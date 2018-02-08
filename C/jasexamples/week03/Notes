@@ -1,0 +1,184 @@
+
+Week 03
+
+Admin
+-----
+ Don't post code on the forum!
+
+ And especially "My program
+ doesn't work. Here it is.
+ Please tell me how to fix it."
+
+ Subscribe to Ed forum!
+
+ Sort out your Email!
+ 
+ Last week: expressions, if
+ This week: while, functions
+  
+  
+  
+  
+  
+  
+Statements
+----------
+  
+ Assignment:
+  x = 1;   y = x * x;   z = 2 + x/y;
+  
+ Function calls:
+  scanf("%d", &n);  printf("%d\n", n);
+  
+
+
+
+
+
+
+Control Structures
+------------------
+
+ Sequence: 
+  S1; S2; S3; ... ; Sn;
+
+ Choice (selection):
+  if (C) { S1; S2; ... } else {Sj; Sk; ...}
+
+ Repetition (iteration):
+  while (C) { S1; S2; ... }
+ 
+ 
+ 
+ 
+ 
+ 
+C Programs
+----------
+ 
+ * a collection of functions
+ * one function must be called main()
+ 
+ 
+ 
+ 
+ 
+ 
+ Admin
+ -----
+ * lab challenge problems aren't compulsory
+ * sort out home computing
+ 
+ 
+ 
+
+
+
+
+ Defining computations (i.e. programming)
+
+ minimal requirements:
+ * sequence  (s1 ; s2; ...)
+ * choice  (if)
+ * repetition  (while)
+
+ practical requirement:
+ * abstraction
+
+
+
+ 
+ 
+
+ Functions
+ ---------
+
+ a C function
+ * takes arguments through parameters
+ * computes and returns a result
+ * may have some other side-effects
+
+
+ Each function has a "signature"
+
+ factorial(n) : int -> int
+ power(n,m)   : int x int -> int
+ 
+
+ in C, signatures are written like
+
+ int factorial(int);
+ int power(int, int);
+
+
+ in C, functions are defined like
+
+ int factorial(int n)
+ {
+    int fac;
+    // code to compute n!
+    // store result in fac
+    return fac;
+ }
+
+ * n is the name of the value passed to
+   the function (parameter)
+ * fac is a variable local to the function
+
+ and invoked like
+
+ int x;
+ x = factorial(5);
+
+ * 5 is the argument
+ * factorial() code executes with n = 5
+ 
+ 
+ 
+ // foreach n in 1..n
+ i = 0;
+ while (i < n) {
+   do some stuff
+   i = i + 1;
+ }
+
+
+
+
+ 
+ Today's examples (mainly loops)
+ 
+ * calculating pi via 4 - 4/3 + 4/5 - 4/7 + ...
+ 
+ * adding two numbers (function to read number)
+
+ * maximum of a sequence of numbers
+ 
+ * generating sequences of numbers
+ 
+ * calculating primes
+ 
+ * drawing a square
+ 
+ * drawing a "flag"
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+  
+  
+
+
+

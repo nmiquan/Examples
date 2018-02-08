@@ -1,0 +1,206 @@
+ 
+ Admin
+ =====
+ 
+ * ass1 automarking done ... check your results
+ 
+ * ass2 ... keep working, give daily
+ 
+ * prac exam #2 ... linked lists, revise now
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ The C Compiler
+ ==============
+ 
+ * in fact, there are *many* C compilers
+   - most common are gcc and Clang
+   - dcc is an andrewt special wrapper around Clang
+ 
+ * actually consists of a suite of tools
+   - pre-processor, compiler, linker
+   - all combine to transform C program text
+     into executable code (a.out)
+ 
+
+
+
+
+ C pre-processor
+ =============== 
+ * pre-processor modifies program text
+   - using re-writing rules introduced by  #define
+   - including extra text via  #include
+   - excluding text via  #if, #ifdef, #ifndef
+   
+ * invoked as part of normal compilation
+ 
+ * to show results of pre-processing:  gcc -E
+ 
+ 
+ 
+ 
+ 
+ C compiler
+ ==========
+ 
+ * checks C program text for validity
+   
+ * transforms C text into machine-level code
+   - unlinked binary (x.o), or
+   - assembly language (x.s)
+ 
+ * to stop after compilation (no linking):  
+ 
+   gcc -c  x.c     gives    x.o
+   
+   gcc -S  x.c     gives    x.s    (for uber nerds)
+ 
+ 
+ 
+ 
+ Linker (loader)
+ ===============
+ 
+ * linker combines object code files to make a.out
+ 
+ * usage: gcc -o Executable x.o y.o z.o -lLibrary
+ 
+   - example: gcc -o stk1 stk.o stack_array.o
+ 
+ * includes standard libraries by default (-lS)
+ 
+ * other specialist libraries need explicit -lLib
+ 
+ 
+ 
+ 
+ Debugging
+ =========
+ 
+ * process of finding and fixing errors (bugs) in code
+ 
+ * !finding! is typically much harder than !fixing!
+ 
+ * possible kinds of errors
+   - program runs forever  (infinite loop)
+   - program crashes  (e.g. segmentation fault)
+   - program produces obviously incorrect output
+   - program produces correct output ... sometimes
+ 
+ * bugs typically caused by mismatch between
+   what you intended to write and what you wrote
+   
+ * essence of debugging:
+   - find out precisely what the program is doing
+   - compare this to what you assumed it was doing
+   
+ * one way to find out:  printf(...)
+ 
+ 
+ 
+ 
+ 
+ Debugger
+ ========
+ 
+ * app that controls execution of another program
+ 
+ * provides ability to
+   - stop running program (breakpoints)
+   - step through program  (one statement at a time)
+   - examine program state  (variables, stack, ...)
+ 
+ * "gdb" is the standard Linux debugger
+ 
+    gcc -g -o myProg main.c lib.c
+    ./myProg        (which crashes)
+    gdb myProg      (to start debugging)
+    
+
+
+
+
+
+
+
+ Admin
+ =====
+ 
+ * automarking for Ass1 done by tomorrow 
+   - check your results; let Andrew know if !ok
+ 
+ * please do the MyExperience course survey
+   - course overall  (especially comments)
+   - your lecturer   (I am not Andrew Taylor!)
+   - your tutor      (I am not your tutor!)
+   
+
+
+
+
+
+ C and program safety
+ ====================
+ 
+ * C compilers produce very efficient executable code
+ 
+ * they do this by *not* doing runtime checks
+   - is a[i] indexing a valid location in a[]?
+   - is *p using a valid address?
+   - is *p using a free'd location?
+ 
+ * C programs are fast, but potentially unsafe
+ 
+ * you must take great care in developing C code
+ 
+ 
+ 
+ 
+
+ Debugging
+ =========
+ 
+ * process of !finding! and fixing bugs
+ 
+ * debuggers run programs under control
+   - breakpoints, single step, examine variables
+   
+ * for running under "gdb", compile with "-g"
+ 
+ * examples: buffer overflow, invalid pointer refs
+ 
+ * example: WannaCry ransom-ware  ($$$$$$$ bug)
+ 
+ 
+ 
+ 
+ 
+ 
+ Source Code Management
+ ======================
+ 
+ * an individual can maintain code in a directory
+   - edit in-place, test changes, voila! new version
+   - but what if your changes mess things up badly?
+   - easier to revert to an old version ...
+   
+ * groups of programmers working on single code base
+   - programmer X adds new feature to prog.c
+   - programmer Y fixes bug in prog.c
+   - need to reconcile changes to produce new version
+   
+   
+ * revision/version/source-code control systems ...
+   - maintain a single repository of code
+   - storing different versions efficiently
+   - allowing programmers to ...
+     - check out their own copy
+     - make changes to their copy
+     - merge it back into the repository
+   
+    

@@ -1,0 +1,144 @@
+
+ Admin
+ -----
+ * keep on blogging
+   - blog about experiences while fresh
+   - blog about themes after thinking
+ * revision quiz #1
+ * CSEsoc BBQ, 1pm Mon, FREE food
+ 
+  
+     
+ Computational objects
+ ---------------------
+ * have name, type, value, location, etc.
+ 
+ 
+ 
+ Functions
+ ---------
+ * take arguments (values)
+ * compute using arg values
+ * possibly with side-effects
+ * return a result
+ 
+ e.g. int factorial(int);
+      n = factorial(10);
+      
+  
+ * C functions have run-time "state"
+   - created when function is called
+   - includes parameters and local variables
+   - no access to variables in other functions
+   - BUT ...    
+ * C can pass object locations as arguments
+   - within function, can access variables
+     in other functions using their location
+ 
+ 
+ Examples:
+  
+ * add2a.c, add2b.c  ... passing locations
+ * sum.c, fillArray() ... passing arrays
+ * matrx.c, matrices.c ... manipulating arrays
+
+
+
+
+ Char data type
+ --------------
+ * one byte, representing a character
+   (e.g. 'a', 'A', '3', '!', ',', '\n')
+ * defined as: char ch;
+ * input using: scanf("%c",&ch);  or  ch = getchar();
+ * output using: printf("%c",ch);  or  putchar(ch);
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ Admin
+ -----
+ 
+ Please fix your emails ...
+ 
+ z5125854, z5141515, z5164243, z5163301, z5167704
+ 
+ 
+ Friday is last chance to move to COMP1911 (if !cse)
+ 
+ 
+ 
+ 
+ Char data type
+ --------------
+ * one byte, representing a character
+   (e.g. 'a', 'A', '3', '!', ',', '\n')
+ * defined as: char ch;
+ * input using: scanf("%c",&ch);  or  ch = getchar();
+ * output using: printf("%c",ch);  or  putchar(ch);
+ * getchar(), putchar() defined in <stdio.h>
+ * <ctype.h> library has functions to classify chars
+   - isupper(), isalpha(), isspace(), ispunct(), ...
+   
+ Example programs:
+ * cat.c ... copy stdin to stdout char-by-char
+ * nlc.c ... count lines and chars in stdin
+ * chr.c ... show ascii codes and char classes
+ 
+ 
+ 
+ 
+ Strings
+ -------
+ * strings are arrays of char's
+ * with a '\0' char to mark the end of the string
+ * defined as:  char str[MAX_STRLEN+1];
+ * MAX_STRLEN is chosen by the programmer
+ * str[] is a "string buffer" (can hold strings)
+ 
+ * input using: fgets(str, MAX_STRLEN, stdin);
+ * output using: fputs(str, stdout);  or
+                 printf("%s", str);
+                 
+ * <string.h> library has functions on strings
+   - strlen(), strcpy(), strcat(), strcmp(), ...
+   
+ Example programs:
+ * rocks?.c ... how strings are represented
+ * string?.c ... using string.h library
+ * fgets?.c ... reading input line-by-line
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ C Program Environment
+ ---------------------
+ * one input stream (stdin), normally the keyboard
+ * one output stream (stdout), normally the terminal
+ * another output stream (stderr), also the terminal
+ * command-line arguments (argc, argv[])
+ * return value, used as success/failure status
+ 
+ Example programs:
+ * echo.c ... show command-line arguments
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 

@@ -1,0 +1,135 @@
+
+ Week 07 Admin
+ =============
+
+ * Assignment 1 now out ... 
+   - start reading spec, code individually
+   - solving all 1-digit examples => DN
+   - solving all 4-digit examples => HD
+ 
+ * This week's lab ... 
+   - 20 min practice in exam envrionment
+     - solve a simple problem
+   - code to help with assignment
+
+ * Fix your email: z5141515, z5125854
+ 
+ * Revision Quiz #2 done much better, except for
+ 
+ Q2
+ 
+ Consider:
+
+ int a_function(int array[], int length) {
+    int i = 1;
+    while (i < length) {
+       if (array[i-1] <= array[i]) { return 0; }
+       i = i + 1;
+    }
+    return 1;
+ }
+ 
+ Given ...int a[] = {5,4,3,3,2};
+ 
+ What value is returned by a_function(a,5) ?
+ 
+ 
+ 
+ Week 07 Wed Admin
+ =================
+ 
+ * "mid-semester break" isn't ..
+   - "mid-semester", but at least close this year
+   - "break" .. it's a week with no classes
+     - use it for catching up, preparing for exam
+
+ * no labs on Friday ... go to another lab this week
+ * there are no lectures or labs next week
+ * there are no tutes/labs in Week 8 (quiet week)
+     
+ * week 8/9 Prac Exam
+   - can you program with arrays?
+   - if not, find some practice problems (tutes?)
+   - practice the process of algorithmic problem solving
+
+ Example: prac.c
+
+ Example: replace.c
+  
+   
+
+
+ Extra Control Structures
+ ========================
+ 
+ * break ... exits nearest enclosing loop (NEL)
+ * continue ... go to next interation of NEL
+ 
+ E.g. (where a,b,c,d are all boolean expressions)
+ 
+ 1. while (a) {
+ 2.     while (b) {
+ 3.         if (c) break;     // goes to line 7
+ 4.         if (d) continue;  // goes to line 2
+ 5.         ...
+ 6.     }
+ 7.     ...
+ 8. }
+ 
+ 
+ Computational Objects
+ =====================
+ * typically have a name, location, type and value
+   e.g.
+       int a;  // type=int, name="a", location=XX
+       int *p; // type=(int *), name="b", location=YY
+       a = 5;  // a's value=5
+       b = &a; // b's value=XX
+       b = &b; // b's value=YY
+   
+ 
+ * objects local to function f() ...
+   - are created when function f() is called
+   - are removed when function f() returns
+   - exist while f() is executing
+   - are not known to any other functions
+   
+
+ * global objects
+   - are defined outside any function
+   - exist throughout program execution
+   - are known to all functions defined after them 
+
+
+ Example: vars.c
+
+   
+ * dynamic objects ...
+   - are created by malloc()
+   - are removed by free()
+   - exist until free'd
+   - are located outside any function
+   - are not known unless address known
+ 
+ 
+ Example: rev?.c
+
+
+
+
+ Technical jargon
+ ================
+ * objects local to function f() ...
+   - lifetime: duration of f() execution
+   - scope: body of function f()
+ 
+ * global objects ...
+   - lifetime: duration of program execution
+   - scope: any function defined after them
+    
+ * dynamic objects ... 
+   - lifetime: programmer defined (malloc..free)
+   - scope: global, if location is known
+   
+
+

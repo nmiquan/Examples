@@ -1,0 +1,127 @@
+ Admin
+ =====
+ * Assignment 2 out soon
+ 
+ 
+ 
+ 
+ 
+ 
+ Typedef (reminder)
+ ==================
+ 
+ * typedef lets us give names to types
+ 
+ * typedef  TypeDefinition  Name;
+ 
+   e.g. typedef  int  number_t;
+        typedef  char string_t[50];
+        typedef  int  *pointer_t; 
+        
+        number_t a;   is same as   int a;
+        string_t s;   is same as   char s[50];
+        pointer_t p;  is same as   int *p;
+        
+        
+       
+ 
+ 
+ Structs (reminder)
+ ==================
+ * a struct holds named components of various types
+ 
+   e.g. struct student {
+            int    id;
+            char   name[50];
+            double wam;
+        };
+        
+  * "struct xyz" defines a new type
+  
+  * we often assign a name to the type using typedef
+  
+    e.g. typedef struct student {...} student_t;
+    
+ 
+ 
+ 
+ 
+ Linked, dynamic data structures
+ ===============================
+ 
+ * composed of a collection of Nodes
+ 
+ * each Node is a struct containing
+   - one or more data values
+   - one or more pointers to other Node(s)
+   
+ * Nodes are created dynamically (via malloc())
+ 
+ * simplest example is a linked list, e.g.
+ 
+   typedef   struct list_node   list_node;
+   
+   struct list_node {
+       int        data;  // value in this Node
+       list_node *next;  // pointer to next Node
+   };
+   
+
+
+
+
+
+
+ Admin
+ ===== 
+ 
+ * Today: more linked lists
+ * Friday: second round of Prac Exams
+ * Sunday: assignment 2 available
+ * Next week: abstract data types (ADTs)
+ 
+ * Enrolling for next semester
+
+
+
+
+
+
+  
+ Linked Lists
+ ============
+ 
+ * a List is a pointer to the first Node
+ 
+   e.g. list_node *myList;
+   
+ * initially empty, represented by myList = NULL
+ 
+ * Nodes are added by malloc()
+ 
+ * each Node has a pointer to the next Node
+ 
+ * the last Node has  last->next == NULL
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ Alternative View of Lists
+ =========================
+ 
+ * a List has a Head and a Tail
+ 
+ * the Head is a (Node containing a) data value
+ 
+ * the Tail is a List  (recursive)
+ 
+ 
+ 
+ 
+ 
+ 
+ 

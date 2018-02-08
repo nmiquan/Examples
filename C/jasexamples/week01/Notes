@@ -1,0 +1,49 @@
+Computational Objects have ...
+* a name
+* a value
+* a location
+* other properties
+
+Files are computational objects
+* name e.g. my_program.c
+* value = contents of file
+* location = directory containing file
+* other properties
+  - access rights, owner, size, update time, ...
+
+Variables are simple computational objects
+* name e.g. total
+* value ... whatever was last assigned
+* location = address in memory (more later)
+* other properties
+  - type ... tells how to interpret value
+
+
+
+
+
+
+
+C program ...
+* set of functions
+* possibly in multiple *.c files
+* #include'ing various "libraries"
+* one file must contain main()
+
+
+
+
+
+
+
+
+Typical program structure ...
+* get input values
+* process inputs to compute result
+* display result
+
+
+
+
+
+

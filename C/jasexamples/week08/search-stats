@@ -1,0 +1,12 @@
+ Searching
+ =========
+ 
+ linear       n=10   n=100   n=1000   n=10000
+     best        1       1        1         1
+     worst       n       n        n         n
+     average   n/2
+     
+ binary       n=10   n=100   n=1000   n=10000
+     best        1       1        1         1
+     worst     log_2(n)
+     average   log_2(n)

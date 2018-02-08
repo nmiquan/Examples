@@ -1,0 +1,126 @@
+ 
+ 
+ 
+ Admin
+ =====
+ * Assignment 2
+   - trader bot world
+   - final version due May 31
+   - tournaments start May 16
+   - submit early, submit often
+   - referee to drive your bot coming soon
+   - assistance in tutes/labs this week
+     - read trader_bot.h before your tute
+ * features of Assignment 2
+   - bots (software agents) are a HOT topic
+   - learn to manipulate complex data structures
+   - practice with pointers (week 13 exam)
+   
+
+
+
+ 
+ 
+ 
+ 
+ 
+ 
+ Data Types
+ ==========
+ 
+ * a data type defines
+   - a set of values
+   - a set of operations on those values
+   
+ * examples:
+   int
+   - values  -1  0  1  2  3  etc.
+   - operations  +  -  *  /  %  <  >  etc.
+   char
+   - values  'a' 'A' '9' '!'  etc.
+   - operations  +  <  >  isupper() tolower()  etc.
+   lists
+   - values  [1,2,3]   [4,3,8,6,9]  []
+   - operations  insert()  delete()  length()  etc.
+ 
+ 
+ 
+ Abstract Data Types (ADTs)
+ ==========================
+ 
+ * a style of defining data types using
+   - a visible interface
+   - a hidden data structure and operations
+   
+ * implementation in C
+   - function signatures in xx.h
+   - function definitions in xx.c
+   
+ * type is defined as a pointer
+   - references a data structure unknown to users
+ 
+ * users define and manipulate objects of the type
+   - using only the definitions in the interface
+   
+ * you've already used a standard ADT ...  FILE *
+ 
+ * typical operations on an ADT
+   - create(), destroy(), show(),
+     insert(), remove(), find(), size(), ...
+
+ 
+ 
+ 
+ 
+ 
+ Stacks
+ ======
+ 
+ * last-in-first-out (LIFO) data structure
+ 
+ * characteristic operations  
+   - push(S,v)   adds an item onto top of stack
+   - v = pop(S)  removes the last push()'d item
+   
+ * a variant on the List data structure 
+   - only has insert()
+   - only deletes the head of the List
+   
+ * very common data structure in practice
+   - example: C function calls, bracket matching, ...
+
+
+
+
+
+
+ Admin
+ =====
+
+ * ???
+ 
+ * ???
+ 
+
+
+
+
+ Queues
+ ======
+ 
+ * first-in-first-out (FIFO) data structure
+ 
+ * characteristic operations  
+   - enqueue(Q,v)    adds item to end of queue
+   - v = dequeue(Q)  removes item from front of queue
+   
+ * a variant on the List data structure 
+   - only has append()
+   - only deletes the head of the List
+   
+ * very common data structure in practice
+   - example: simulations, operating systems, ...
+
+
+
+ 

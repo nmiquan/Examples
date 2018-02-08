@@ -1,0 +1,77 @@
+$ ./myscript.sh > log
+z5180615@cse.unsw.edu.au's password: 
+z5180615@cse.unsw.edu.au's password: 
+scp: /home/jas/Desktop/week02/a.out: Permission denied
+scp: /home/jas/Desktop/week02/code: not a regular file
+z5180615@cse.unsw.edu.au's password: 
+scp: /home/jas/Desktop/week03/a.out: Permission denied
+scp: /home/jas/Desktop/week03/flag0.c: Permission denied
+z5180615@cse.unsw.edu.au's password: 
+scp: /home/jas/Desktop/week04/Makefile: Permission denied
+scp: /home/jas/Desktop/week04/getNumber: Permission denied
+scp: /home/jas/Desktop/week04/pow: Permission denied
+scp: /home/jas/Desktop/week04/pow1: Permission denied
+scp: /home/jas/Desktop/week04/use_fac: Permission denied
+z5180615@cse.unsw.edu.au's password: 
+scp: /home/jas/Desktop/week05/unused: Permission denied
+z5180615@cse.unsw.edu.au's password: 
+scp: /home/jas/Desktop/week06/add: Permission denied
+scp: /home/jas/Desktop/week06/add.o: Permission denied
+scp: /home/jas/Desktop/week06/cat: Permission denied
+scp: /home/jas/Desktop/week06/cat.o: Permission denied
+scp: /home/jas/Desktop/week06/copy: Permission denied
+scp: /home/jas/Desktop/week06/copy.o: Permission denied
+scp: /home/jas/Desktop/week06/echo: Permission denied
+scp: /home/jas/Desktop/week06/echo.o: Permission denied
+scp: /home/jas/Desktop/week06/fac: Permission denied
+scp: /home/jas/Desktop/week06/johnslib.o: Permission denied
+scp: /home/jas/Desktop/week06/small: Permission denied
+scp: /home/jas/Desktop/week06/small1: Permission denied
+scp: /home/jas/Desktop/week06/small2: Permission denied
+scp: /home/jas/Desktop/week06/strings1: Permission denied
+scp: /home/jas/Desktop/week06/strings1.o: Permission denied
+scp: /home/jas/Desktop/week06/strings2: Permission denied
+scp: /home/jas/Desktop/week06/strings2.o: Permission denied
+scp: /home/jas/Desktop/week06/unreadable: Permission denied
+scp: /home/jas/Desktop/week06/unused: Permission denied
+z5180615@cse.unsw.edu.au's password: 
+scp: /home/jas/Desktop/week07/prac: Permission denied
+scp: /home/jas/Desktop/week07/ptr: Permission denied
+scp: /home/jas/Desktop/week07/replace: Permission denied
+scp: /home/jas/Desktop/week07/rev1: Permission denied
+scp: /home/jas/Desktop/week07/rev2: Permission denied
+scp: /home/jas/Desktop/week07/rev3: Permission denied
+scp: /home/jas/Desktop/week07/sqcu: Permission denied
+scp: /home/jas/Desktop/week07/suba: Permission denied
+scp: /home/jas/Desktop/week07/swap: Permission denied
+scp: /home/jas/Desktop/week07/unused: not a regular file
+scp: /home/jas/Desktop/week07/wc1: Permission denied
+scp: /home/jas/Desktop/week07/wc2: Permission denied
+z5180615@cse.unsw.edu.au's password: 
+scp: /home/jas/Desktop/week08/fines: Permission denied
+scp: /home/jas/Desktop/week08/unused: Permission denied
+z5180615@cse.unsw.edu.au's password: 
+scp: /home/jas/Desktop/week09/LL: Permission denied
+scp: /home/jas/Desktop/week09/list0: Permission denied
+scp: /home/jas/Desktop/week09/lists.o: Permission denied
+scp: /home/jas/Desktop/week09/llist: Permission denied
+scp: /home/jas/Desktop/week09/llist.o: Permission denied
+scp: /home/jas/Desktop/week09/unused: not a regular file
+z5180615@cse.unsw.edu.au's password: 
+scp: /home/jas/Desktop/week10/list.o: Permission denied
+scp: /home/jas/Desktop/week10/ll.o: Permission denied
+scp: /home/jas/Desktop/week10/que.o: Permission denied
+scp: /home/jas/Desktop/week10/stack_array.o: Permission denied
+scp: /home/jas/Desktop/week10/stack_list.o: Permission denied
+scp: /home/jas/Desktop/week10/stack_realloc.o: Permission denied
+scp: /home/jas/Desktop/week10/stk.o: Permission denied
+scp: /home/jas/Desktop/week10/unused: Permission denied
+z5180615@cse.unsw.edu.au's password: 
+z5180615@cse.unsw.edu.au's password: 
+scp: /home/jas/Desktop/week12/best: Permission denied
+scp: /home/jas/Desktop/week12/q1: Permission denied
+scp: /home/jas/Desktop/week12/q2: Permission denied
+scp: /home/jas/Desktop/week12/que.o: Permission denied
+scp: /home/jas/Desktop/week12/queue_array.o: Permission denied
+scp: /home/jas/Desktop/week12/queue_list.o: Permission denied
+

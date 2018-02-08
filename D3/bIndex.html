@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang='en'>
+  <head>
+    <meta charset='utf-8'> <!--idenfities encoding for this file is UTF-8-->
+    <title>D3: Reading CSV</title>
+    <script type='text/javascript' src='d3/d3.js'></script> <!--reference to d3-->
+  </head>
+  <body>
+    <script type='text/javascript'>
+        d3.select('body').append('p').text('New Paragraph!');
+        d3.csv('food.csv', function(data){
+          console.log(data);
+        })
+    </script>
+  </body>
+</html>

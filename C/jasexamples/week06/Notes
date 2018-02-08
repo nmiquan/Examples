@@ -1,0 +1,235 @@
+
+ Admin
+ -----
+ * don't post code on the forum
+ * ask your tutor if you need to show code
+ * when asking Q's, give details of the problem
+   - programming problems are impossible to
+     diagnose without knowing the environment
+     and without knowing precisely what happened
+
+
+
+ 
+ 
+ 
+ 
+ Revision Quiz #1
+ ----------------
+ 
+ Q1. What is the value of res?
+ 
+  int a = 2, b = 7;
+  double res;
+  res = b/a;
+  
+  
+  
+ Q3. What does the following function compute?
+
+  int f(int n) {
+      if (n == 0) {
+          return 0;
+      }
+      else if (n < 0) {
+          return 0 - f(-n);
+      }
+      else {
+          return n + f(n-1);
+      }
+  }
+  
+  f(3) = 3+f(2) = 3+2+f(1) = 3+2+1+f(0) = 3+2+1+0
+
+
+
+ Q5. What are the values of n , x and y 
+     after the following code is executed:
+
+  int n, x;
+  n = scanf("%d", &x);
+  
+  and the user types the following as input
+
+  two
+  
+  
+  
+ 
+ 
+ C programs
+ ----------
+ * two channels: argv[] and stdin/stdout
+ * by default, stdin = keyboard, stdout = terminal
+ * argc = # of "words" on command line
+ * argv = array of "words"  (argv[0] is cmd name) 
+
+
+ Example programs:
+ * echo.c ... show command-line arguments
+ * add.c ... sum of numeric cmd-line arguments
+ 
+
+
+
+
+ 
+ 
+ C idioms
+ --------
+ 
+ C programmers don't write
+ 
+   i = i + 1;
+   
+ Instead, they use shorthand
+ 
+   i++;
+ 
+ 
+ 
+ C programmers don't write
+ 
+   i = 0;
+   while (i < N) {
+       ... code using i ...
+       i = i + 1;
+   }
+   
+ Instead, they use shorthand
+ 
+   for (i = 0; i < N; i++) {
+       ... code using i ...
+   }
+ 
+ 
+ 
+ 
+
+
+ Strings
+ -------
+ * strings are arrays of char's
+ * with a '\0' char to mark the end of the string
+ * defined as:  char str[MAX_STRLEN+1];
+ * MAX_STRLEN is chosen by the programmer
+ * str[] is a "string buffer" (can hold strings)
+ 
+ * input: fgets(),  output: fputs(), printf()
+                 
+ * <string.h> library has functions on strings
+   - strlen(), strcpy(), strcat(), strcmp(), ...
+   
+ Example programs:
+ * snap?.c ... read lines until two match
+ * string?.c ... using string functions
+ * fgets?.c ... reading input line-by-line
+ * s2i.c ... converting strings to ints
+ 
+ 
+ 
+ 
+ Files
+ -----
+ * files are objects stored in a file system
+ * files are accessed by name
+ * files contain a sequence of bytes (chars),
+   terminated by EOF
+ * within programs, accessed via FILE *f
+ * connect file to FILE * via fopen()
+ * release connection via fclose()
+ * scanned via fgetc(), fgets(), fscanf()
+ * written via fputc(), fputs(), fprintf()
+ 
+ 
+ Example programs:
+ * cat.c ... copy named file to stdout
+ * copy.c ... copy file f1 to file f2
+ * grep.c ... scan file, looking for matches
+ * wc?.c ... count chars, words, lines in files
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ Admin
+ -----
+ * Assignment 1 ... "Captcha Cracking"
+   - released this week, due after break
+ * Keep on blogging
+
+
+
+
+
+
+
+ Fixing Errors
+ -------------
+ * types of errors:
+   (a) syntax errors from dcc (easy to fix)
+   (b) semantic errors from dcc (easy to fix)
+   (c) incorrect results (need to think)
+   (d) runtime crash (dcc gives useful info)
+   
+if (x = 0) { ... }
+if (x == 0) { ... }
+   
+ * type (a) and (b) ...
+   - *read* the (first) error message
+   - look at the flagged line
+   - fix it and recompile
+   - repeat until no more compiler errors
+   
+ * type (c) and (d) ...
+   - need info on execution state
+   - could get via strategic printf()s
+   - could get via a debugger (e.g. gdb)
+  
+  
+ Things about scanf() and its friends
+ ------------------------------------ 
+ scanf(fmt, &arg, ...) ... read from stdin
+ fscanf(stream, fmt, &arg, ...) ... read from stream
+ 
+ scanf(fmt,&arg,...) === fscanf(stdin,fmt,&arg,...)
+ 
+ sscanf(string, fmt, &arg, ...) ... read from string
+ 
+ 
+ Short-circuit evaluation of logic expressions
+ ---------------------------------------------
+ if (a || b || c || d) { S } else { T }
+ 
+ executed like
+ 
+ if (a) { S }
+ else if (b) { S }
+ else if (c) { S }
+ else if (d) { S }
+ else { T }
+ 
+ 
+ 
+ if (a && b && c && d) { ... }
+ 
+
+   
+    
+
+
+ Filters
+ -------
+ * Linux programs read stdin and write stdout
+ * both streams a sequences of bytes
+ * many Linux programs written as "filters"
+ * can connect filters together by "pipes"
+   cmd1 args ... | cmd2 args ... | cmd3 ...
+
+
+
+
+
+

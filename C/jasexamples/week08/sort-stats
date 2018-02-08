@@ -1,0 +1,12 @@
+ Sorting (a randomly ordered array)
+ =======
+ 
+ bubble       n=10   n=100   n=1000   n=10000
+     average
+     best
+     worst
+     
+ quick        n=10   n=100   n=1000   n=10000
+     average
+     best
+     worst

@@ -1,0 +1,144 @@
+ Admin
+ =====
+ * No tute/lab classes this week
+ 
+ * 1st Prac Exam on Fridays week 08 or week 09
+   - topic: array manipulation
+   - solve 3 small programming problems in 1 hour
+   - use revision exercises to practice
+   
+ * Assignment 1: Captcha Cracking
+   - due: 23:59 on Sunday 30 April
+   - should already have started  (JIT fails in CS)
+   - submit your code after each edit/test session
+   - help: on Forum, email tutor, help sessions
+ 
+ * This week: intro to searching and sorting
+   
+   
+
+
+ Searching
+ =========
+ * most data structures contain many items
+   - e.g. arrays, sets, lists, trees, graphs, ...
+ * a common operation: search
+   - check whether a given item is in the structure
+ * how search is implemented depends on
+   - what kind of data structure
+   - type of items
+ * we look at two search algorithms
+   - linear search on arrays
+   - binary search on sorted arrays
+ * which search algorithm is best?
+   - is it applicable to given data structure?
+   - how does its performance compare to others?
+   
+   
+   
+ Sorting
+ =======
+ * as we saw, sorted arrays can be searched faster
+ * sorting algorithms ensure that array is sorted
+ * "sorted" typically means:
+   forall i in 0..n-2, a[i] <= a[i+1]
+ * we look at two sorting algorithms
+   - bubble sort (relatively inefficient)
+   - quick sort (generally more efficient)
+
+
+
+
+
+
+
+
+ Admin
+ =====
+
+ * these examples are under /home/jas/Desktop/
+   - then subdirectories for each week
+
+ * Assignment 1
+   - it is hard to get 100% recognition
+   - you can pass with < 100% recognition
+   - warning: neural networks may work ok on 
+     sample captcha's
+   - they may not work so well on test examples
+   - same notion applies to other trained techniques
+   
+ * QuickSort
+   - if you're having trouble understanding quicksort,
+     try the following videos ...
+   - interpretive dance version
+     https://www.youtube.com/watch?v=ywWBy6J5gz8
+   - animated version
+     https://www.toptal.com/developers/sorting-algorithms/quick-sort
+   - warning: neither uses precisely the same
+     algorithm as we showed in lectures
+   - exercise: implement the algorithms used in
+     the videos
+     
+
+
+
+
+
+
+
+
+ Structs
+ =======
+ 
+ * computational objects considered so far
+   - simple: int, double, char, Pointers (*)
+   - compound: Arrays (e.g. int a[50]) (homgeneous)
+ * structs are a heterogenous compund type
+ * containing named components of various types
+ 
+ * struct types are defined as e.g.
+   struct xy_coord { int x; int y; }
+   
+ * struct objects are declared as e.g.
+   struct xy_coord pt;
+   
+ * components of structs are accessed as e.g.
+   pt.x   2*pt.y   pt.x*pt.y
+   
+ * struct pointers are common and declared as e.g.
+   struct xy_coord *pp;
+   
+ * structs for these pointers can be malloc'd e.g.
+   pp = malloc(sizeof(struct xy_coord));
+   
+ * components of such structs are accessed as e.g.
+   (*pp).x   OR (much more commonly)  pp->x
+
+ * unlike arrays, whole structs can be assigned e.g.
+   struct xy_coord pt1, pt2;
+   ...
+   pt2 = pt1;
+   
+ * like arrays, whole structs cannot be compared
+   !!!  pt1 == pt2 is WRONG   !!!
+   
+ * structs can be nested e.g.
+   struct date { int day; int month; int year; }
+   struct person { char name[50]; struct date bday; }
+   struct person p;
+   strcpy(p.name,"John");
+   p.bday.day = 12; p.bday.month = 2; ...
+
+ * since a type name like "struct person" is long,
+   can rename using typedef e.g.
+   typedef struct xy_coord  coord_t;
+   typedef struct person    person_t;
+   OR
+   typedef struct xy_coord  Coord;
+
+ Examples:
+ * points on a plane (in "points.c")
+ * speeding fines
+   - my version (from lectures) is "fines.c"
+   - Andrew's version is "speeding.c"
+ 

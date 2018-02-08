@@ -1,0 +1,18 @@
+struct list node {
+    int data;
+    struct list node *next;
+};
+
+OR
+
+typedef struct list_node Node;
+struct list_node {
+    int data;
+    Node *next;
+}
+
+Node *curr;
+
+OR
+
+#define Node struct list_node

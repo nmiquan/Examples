@@ -1,0 +1,187 @@
+Admin
+-----
+
+The following students need to fix their email:
+
+z5163301,  z5141515
+
+And anyone else who did not receive Andrew's
+notice about the Poll
+
+"Is COMP1511 going too Slow, too Fast or Just Right?"
+
+Challenge exercises DIFFICULT this week
+Last exercise needs planning, serious programming
+Don't use arrays
+
+
+
+
+
+Blogging
+--------
+
+* keep a journal of your trip through COMP1511
+* through Webcms3 ... bottom left of home screen
+* think about what you did
+  - things that worked well
+  - more importantly, things that didn't work well
+* create a blog post after each COMP1511 "session"
+* occasional themes for bloggin ... week 4
+  "5 pieces of advice for a new COMP1511 student"
+
+
+
+
+Arrays
+------
+
+So far, have considered simple atomic variables
+Each variable holds one value (e.g. int, double)
+
+Much of computing deals with structured data
+E.g. records, lists, trees, graphs, dictionaries, ...
+
+
+Today we consider arrays ...
+* array = indexed collection of elements
+* each element has the same type
+* elements are called a[0], a[1],...a[N-1]
+* array elements need to be initialised
+* whole arrays can't be assigned/scanf'd/printf'd
+
+
+Simple variables are defined: Type Name;
+
+e.g. int x;  double y;
+
+Arrays are defined: ElemType ArrayName[#Elements];
+
+e.g. int v[10];  double numbers[1000];
+
+
+
+
+
+ Admin
+ -----
+
+ Next few days are last chance to swap
+ COMP1511 -> COMP1911 or COMP1511 -> ENGG1811
+
+
+ Emails bounced for the following students
+
+ zNNNNNNN, zNNNNNNN, zNNNNNNN, zNNNNNNN
+
+ Sort them out ASAP ... email is the official channel
+
+
+ Don't forget to reflect on your COMP1511 journey ...
+
+
+
+
+
+
+ Functions
+ ---------
+
+ a C function
+ * takes arguments through parameters
+ * computes and returns a result
+ * may have some other side-effects
+
+
+ Each function has a "signature"
+
+ factorial(n) : int -> int
+ raise(x,n)   : real x int -> real
+ 
+
+ in C, signatures are written like
+
+ int factorial(int);
+ double raise(double, int);
+
+
+ in C, functions are defined like
+
+ int factorial(int n)
+ {
+    int fac;
+    // code to compute n!
+    // store result in fac
+    return fac;
+ }
+
+ * n is the name of the value passed to
+   the function (parameter)
+ * fac is a variable local to the function
+
+ and invoked like
+
+    int x;
+    x = factorial(5);
+
+ * 5 is the argument
+ * factorial() code executes with n = 5
+ * the result is assigned to variable x
+ 
+ 
+ 
+ How function calls work ...
+ 
+ At the call to function fun(e_1,e_2,e_3) ...
+ * each argument e_i is evaluated
+ * the value is assigned to the relevant parameter
+ * the body of the function fun() is executed 
+   with the parameters having those values
+ 
+ 
+  
+ Example:
+ 
+ // function definition
+ int f(int x, int y) { int z; CODE; return z; }
+ 
+ // function call
+ int n=4, m; ... m = f(2, n+5);
+ 
+ * x is set to 2, y is set to 9
+ * CODE is then executed with these values for x,y
+ * z has no value at the start of CODE execution
+ * CODE performs computation to set z's value
+ * the final value of z is the value of f(2,n+5)
+ 
+   
+ 
+
+
+
+ A C program ...
+ * is a collection of functions
+ * has a main() function (where execution begins)
+ * functions may be in several *.c files
+ 
+ If a program has files
+ 
+    fun1.c  fun2.c  main.c
+    
+ we compile it as follows
+ 
+    dcc -c fun1.c
+    dcc -c fun2.c
+    dcc -c main.c
+    
+ which gives files
+  
+     fun1.o  fun2.o  main.o
+     
+ these are then combined ("linked") using
+ 
+     dcc -o myprog fun1.o fun2.o main.o
+     
+ to give an executable called "myprog"
+ 
+ 

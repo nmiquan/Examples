@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang='en'>
+  <head>
+    <meta charset='utf-8'> <!--idenfities encoding for this file is UTF-8-->
+    <title>D3: Random Data</title>
+    <script type='text/javascript' src='d3/d3.js'></script> <!--reference to d3-->
+    <style>
+    div.bar {
+      display: inline-block;
+      width: 20px;
+      background-color: teal;
+      margin-right: 2px;
+    }
+    </style>
+  </head>
+  <body>
+    <script type='text/javascript'>
+        var dataset = [];
+        for (var i = 0; i < 20; i++) {
+          var newNumber = Math.round(Math.random() * 30);
+          dataset.push(newNumber);
+        }
+        d3.select('body').selectAll('div')
+          .data(dataset)
+          .enter()
+          .append('div')
+          .attr('class', 'bar')
+          .style('height', function(d){
+            var barHeight = d*5; //Scale up by factor of 5
+            return barHeight + 'px';
+          });
+    </script>
+  </body>
+
+</html>

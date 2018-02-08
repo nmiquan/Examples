@@ -1,0 +1,86 @@
+
+
+ Admin
+ =====
+ 
+ * Ass1 ... marking progress
+   - auto-marking now done  (but check yours)
+   - now handed over to tutors for hand-marking
+   
+ * Ass2 ... keep working, give daily
+   - new deadline Sunday 4 June
+ 
+ * prac exam #2 ... linked lists, revise now
+ 
+ * reminder: MyExperience course survey
+
+ * final exam ... come to the Wednesday lecture
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ Assignment 1 Code Review
+ ========================
+ 
+ * Andrew sent me six best submissions
+ 
+ * most were readable, some well-designed
+ 
+ * hadn't done ADTs before Ass1
+   - now consider how they could improve design
+   
+
+
+
+
+ 
+ Source Code Management
+ ======================
+ 
+ * an individual can maintain code in a directory
+   - edit in-place, test changes, voila! new version
+   - but what if your changes mess things up badly?
+   - easier to revert to an old version ...
+   
+ * groups of programmers working on single code base
+   - programmer X adds new feature to prog.c
+   - programmer Y fixes bug in prog.c
+   - need to reconcile changes to produce new version
+   
+   
+ * revision/version/source-code control systems ...
+   - maintain a single repository of code
+   - storing different versions efficiently
+   - allowing programmers to ...
+     - check out their own copy
+     - make changes to their copy
+     - merge it back into the repository
+ 
+ 
+ 
+ 
+     
+     
+ Make and Makefiles
+ ==================
+ * in a large code-base, keeping track of all files
+   and dependencies between files is difficult
+   
+ * possible approaches to re-building after changes
+   - recompile everything ... inefficient
+   - recompile just what changed ... error-prone
+   
+ * Makefiles allow you to ...
+   - document dependencies between files
+   - describe how to rebuild after changes
+ 
+ * make recompiles just what needs to be recompiled
+   - based on dependencies and file update times
+ 
+   
+    

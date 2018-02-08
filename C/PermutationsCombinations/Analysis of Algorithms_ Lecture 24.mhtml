@@ -1,0 +1,325 @@
+From: <Saved by Blink>
+X-Snapshot-Version: 1.0
+X-Snapshot-Title: =?utf-8?Q?Analysis of Algorithms: Lecture 24?=
+X-Snapshot-Content-Location: http://www.cs.utexas.edu/users/djimenez/utsa/cs3343/lecture25.html
+Subject: Analysis of Algorithms: Lecture 24
+Date: Sat, 1 Dec 2017 02:19:19 -0000
+MIME-Version: 1.0
+Content-Type: multipart/related;
+	type="text/html";
+	boundary="----MultipartBoundary--iU7eRLyRv3m4PxTtrcSjzH8zZkDnn21KYs7xJp1zIb----"
+
+------MultipartBoundary--iU7eRLyRv3m4PxTtrcSjzH8zZkDnn21KYs7xJp1zIb----
+Content-Type: text/html
+Content-ID: <frame-125-cc30bf27-f18f-4cb1-b74a-dde777cfac76@mhtml.blink>
+Content-Transfer-Encoding: quoted-printable
+Content-Location: http://www.cs.utexas.edu/users/djimenez/utsa/cs3343/lecture25.html
+
+<html><head><meta http-equiv=3D"Content-Type" content=3D"text/html; charset=
+=3Dwindows-1252"><title> Analysis of Algorithms: Lecture 24 </title>
+</head><body><div id=3D"StayFocusd-infobar" style=3D"display:none;">
+    <img src=3D"chrome-extension://laankejkbhbdhmipfmgcngdelahlfoji/common/=
+img/eye_19x19_red.png">
+    <span id=3D"StayFocusd-infobar-msg"></span>
+    <span id=3D"StayFocusd-infobar-links">
+        <a id=3D"StayFocusd-infobar-never-show">hide forever</a>&nbsp;&nbsp=
+;|&nbsp;&nbsp;
+        <a id=3D"StayFocusd-infobar-hide">hide once</a>
+    </span>
+</div>
+<h1>Algorithms for Permutations and Combinations</h1>
+Here are some algorithms I have found useful in surprisingly many
+instances:
+<h2>Generating Permutations of a Set of Elements</h2>
+We know that there are <em>n</em>! permutations of <em>n</em>
+elements; we have seen this fact when e.g. proving lower bounds on
+comparison sorting and the brute-force algorithm for solving the
+Travelling Salesman Problem.  But how do we generate these permutations?
+<p>
+The following algorithm, presented as a C program that prints the
+permutations of the first 5 positive integers, can be adapted to
+generated permutations of any kind of element you want:
+</p><pre>#include &lt;stdio.h&gt;
+
+/* function to swap array elements */
+
+void swap (int v[], int i, int j) {
+	int	t;
+
+	t =3D v[i];
+	v[i] =3D v[j];
+	v[j] =3D t;
+}
+
+/* recursive function to generate permutations */
+void perm (int v[], int n, int i) {
+
+	/* this function generates the permutations of the array
+	 * from element i to element n-1
+	 */
+	int	j;
+
+	/* if we are at the end of the array, we have one permutation
+	 * we can use (here we print it; you could as easily hand the
+	 * array off to some other function that uses it for something
+	 */
+	if (i =3D=3D n) {
+		for (j=3D0; j&lt;n; j++) printf ("%d ", v[j]);
+		printf ("\n");
+	} else
+		/* recursively explore the permutations starting
+		 * at index i going through index n-1
+		 */
+		for (j=3Di; j&lt;n; j++) {
+
+			/* try the array with i and j switched */
+
+			swap (v, i, j);
+			perm (v, n, i+1);
+
+			/* swap them back the way they were */
+
+			swap (v, i, j);
+		}
+}
+		=09
+/* little driver function to print perms of first 5 integers */
+
+int main () {
+	int	v[5], i;
+
+	for (i=3D0; i&lt;5; i++) v[i] =3D i+1;
+	perm (v, 5, 0);
+	exit (0);
+}
+</pre>
+Note that the running time of this program, in terms of the number of
+times a permutation is printed, is exactly <em>n</em>!, so it is as efficie=
+nt
+as it can be since it necessarily does <em>n</em>! things.
+<p>
+What about the space complexity?  Aside from the array itself, which
+consumes <img src=3D"http://www.cs.utexas.edu/users/djimenez/utsa/cs3343/th=
+eta.uc.gif" align=3D"middle">(<em>n</em>) storage,
+we have recursion consuming stack frames.  If we trace the recursion from
+the top level invokation down to the base case, we easily see that
+no more than <em>O</em>(<em>n</em>) invokations are done before returning
+up the tree of recursive calls.  Thus, only up to <em>O</em>(<em>n</em>)
+stack frames are needed.
+</p><p>
+Note that this algorithm will take forever when <em>n</em> gets beyond
+15 or so.
+</p><h2>Generating Combinations of a Set of Elements</h2>
+A related problem is that of generating combinations of a set
+of <em>n</em> elements taken <em>k</em> at a time without replacement.
+This problem comes up frequently in real world situations, for instance
+when you need to compute a list of groups of people that could be assigned
+to a group.  On the Usenet newsgroups <a href=3D"news:sci.math"> sci.math <=
+/a>
+and <a href=3D"news:comp.theory"> comp.theory </a>, this question comes up
+about once a month, and probably even more often in programming newsgroups.
+<p>
+Here is a very simple algorithm that will do this for you.  The nice thing
+about it is that the concept is easy to remember and code up; it always
+seems that when you need an algorithm like this, the book you saw it in
+is somewhere else or the computer you have it on is inaccessible, so being
+able to code it up on the fly is a nice property.
+</p><p>
+The quantity we are interested in is <em>n</em> choose <em>k</em>,
+abbreviated <em>n</em> C <em>k</em>.  Let's represent the elements
+of a set as an array of bits.  If the bit is 1, then the element
+is in the set, otherwise the element is not in the set.  For example,
+the following binary number:
+</p><pre>11010101
+</pre>
+with bit numbers running from 7 down to 0, represents the set:
+<pre>{ 7 6 4 2 0 }
+</pre>
+If we want to generated all <em>n</em> C <em>k</em> combinations of
+<em>n</em> integers from 0..<em>n</em>-1 taken <em>k</em> at a time,
+we can just generate all binary numbers with exactly <em>k</em> 1-bits.
+<p>
+The simple (but inefficient) way to do this is just generate all possible
+<em>n</em>-bit numbers, count the bits in each, and print the corresponding
+combination when the number of bits is equal to <em>k</em>.  Here is
+the algorithm, in awful bit-twiddling C (printing sets of integers beginnin=
+g
+with 1 instead of 0).  Note that in C, <tt>1 &lt;&lt; n</tt> is the same
+as 2<sup><em>n</em></sup>:
+</p><pre>/* This program accepts n and k on the command line, then prints
+ * all n C k combinations of integers from 1..n
+ */
+#include &lt;stdio.h&gt;
+
+int main (int argc, char *argv[]) {
+        int     n, k, i, j, c;
+
+        if (argc !=3D 3) {
+                printf ("Usage: %s n k\n", argv[0]);
+                exit (1);
+        }
+        n =3D atoi (argv[1]);
+        k =3D atoi (argv[2]);
+
+	/* i goes through all n-bit numbers */
+
+        for (i=3D0; i&lt;(1&lt;&lt;n); i++) {
+
+		/* masking the j'th bit as j goes through all the bits,
+		 * count the number of 1 bits.  this is called finding
+		 * a population count.
+		 */
+                for (j=3D0,c=3D0; j&lt;32; j++) if (i &amp; (1&lt;&lt;j)) c=
+++;
+
+		/* if that number is equal to k, print the combination... */
+	=09
+                if (c =3D=3D k) {
+
+			/* by again going through all the bits indices,=20
+			 * printing only the ones with 1-bits
+			 */
+		=09
+                        for (j=3D0;j&lt;32; j++) if (i &amp; (1&lt;&lt;j)) =
+printf ("%i ", j+1);
+                        printf ("\n");
+                }
+        }
+        exit (0);
+}
+</pre>
+If you don't like that code, let that be a lesson to you about avoiding
+bit-twiddling in C :-).  If you do like the code, get some help for that.
+<p>
+What is the running time of this program?  Well, the trick answer
+is <em>O</em>(1).  Since C is limited to 32-bit integers, it can only
+iterate up to a constant number of times.  However, if we analyze the
+underlying algorithm (assuming arbitrary length integers), we can see
+that a population count (the first <tt>for (j</tt>... loop) takes=20
+<img src=3D"http://www.cs.utexas.edu/users/djimenez/utsa/cs3343/theta.uc.gi=
+f" align=3D"middle">(<em>n</em>), and is followed by
+another similar <img src=3D"http://www.cs.utexas.edu/users/djimenez/utsa/cs=
+3343/theta.uc.gif" align=3D"middle">(<em>n</em>)
+section of code, so the whole inner loop takes
+<img src=3D"http://www.cs.utexas.edu/users/djimenez/utsa/cs3343/theta.uc.gi=
+f" align=3D"middle">(<em>n</em>).  The outer loop
+iterates 2<sup><em>n</em></sup> times, so the whole thing takes
+<img src=3D"http://www.cs.utexas.edu/users/djimenez/utsa/cs3343/theta.uc.gi=
+f" align=3D"middle">(<em>n</em> 2<sup><em>n</em></sup>)
+times. =20
+</p><p>
+This is pretty bad for large values of <em>n</em>.
+For example, when <em>n</em> =3D 50 and <em>k</em> =3D 2, there are
+1225 combinations.  However, the algorithm will iterate through
+1,125,899,906,842,624 combinations before it is finished.  You
+shouldn't use this program for anything beyond <em>n</em> =3D 20 or so,
+but it will do (just like bubble sort) in many instances.  The main
+adantages of this algorithm are that it is easy to implement and remember,
+and gives an outlet for C hackers who like bit-twiddling.
+</p><p>
+Here is another algorithm that does the same thing more efficiently
+and more incomprehensibly:
+</p><pre>#include &lt;stdio.h&gt;
+#include &lt;stdlib.h&gt;
+
+void combinations (int v[], int start, int n, int k, int maxk) {
+        int     i;
+
+        /* k here counts through positions in the maxk-element v.
+         * if k &gt; maxk, then the v is complete and we can use it.
+         */
+        if (k &gt; maxk) {
+                /* insert code here to use combinations as you please */
+                for (i=3D1; i&lt;=3Dmaxk; i++) printf ("%i ", v[i]);
+                printf ("\n");
+                return;
+        }
+
+        /* for this k'th element of the v, try all start..n
+         * elements in that position
+         */
+        for (i=3Dstart; i&lt;=3Dn; i++) {
+
+                v[k] =3D i;
+
+                /* recursively generate combinations of integers
+                 * from i+1..n
+                 */
+                combinations (v, i+1, n, k+1, maxk);
+        }
+}
+
+int main (int argc, char *argv[]) {
+        int     v[100], n, k;
+
+        if (argc !=3D 3) {
+                printf ("Usage: %s n k\n", argv[0]);
+                exit (1);
+        }
+        n =3D atoi (argv[1]);
+        k =3D atoi (argv[2]);
+
+        /* generate all combinations of n elements taken
+         * k at a time, starting with combinations containing 1
+         * in the first position.
+         */
+        combinations (v, 1, n, 1, k);
+        exit (0);
+}
+</pre>
+How long does this algorithm take, in terms of the number recursive
+calls needed to print all the combinations? =20
+Each combination that is generated is printed (unlike before),
+and it takes <em>O</em>(<em>n</em>) recursive invokations for each
+combination printed, so an upper bound on the number of recursive
+calls is <em>O</em>(<em>n</em> (<em>n</em> C <em>k</em>)).  This algorithm
+is as efficient as it can get, since you have to do about <em>n</em>
+things to print a combination, anyway.
+<h2>Permutations and Combinations</h2>
+Note that you can get all permutations of <em>n</em> things taken
+<em>k</em> at a time by simply calling <tt>perm (v, maxk, 0);</tt>
+at the base case of <tt>combinations</tt>.  This generates all
+<em>k</em>! permutations of each of the <em>n</em> C <em>k</em>
+combinations, taking <em>O</em>(<em>k</em>! <em>n</em> (<em>n</em> C <em>k<=
+/em>))
+=3D <em>O</em>((<em>n</em>+1)!/(<em>n</em>-<em>k</em>)!) time.
+
+
+</body><template shadowmode=3D"v0"><shadow></shadow><style></style></templa=
+te></html>
+------MultipartBoundary--iU7eRLyRv3m4PxTtrcSjzH8zZkDnn21KYs7xJp1zIb----
+Content-Type: image/png
+Content-Transfer-Encoding: base64
+Content-Location: chrome-extension://laankejkbhbdhmipfmgcngdelahlfoji/common/img/eye_19x19_red.png
+
+iVBORw0KGgoAAAANSUhEUgAAABMAAAATCAYAAAByUDbMAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJ
+bWFnZVJlYWR5ccllPAAABLdJREFUeNpUlFtsFGUUx/9z2Z3Z2e3eu92hobW0JYVAQ7lUKuESeTAY
+iA0xMUbRxEsMgsFbjC+88OQDvADxQV8ID5gYKRgDEqLQgJdYi5LG0uViuylt9zbdmdnLMLtz87QR
+jJOcyWTyff/vnPP/nY8ZHx8HWBaoVlE6dw7B1laUbt8OFBRlj880t7cw7DZT0eKB9nY9IIq/wcf8
+El3VeSkaS6gMALPZRPLgQbCBAHj8+zAcR8FCmZp6vXxr4pMWm1vbIUURS8QhDa4HFwnTeZWNFU09
+aM7kZuu1xslQR/sJMMxjCfAsQ1mRkEMnlH6/dZy5N/fRgNyNaFJGMChB6pUR6GyHL90K+P2ol1VU
+CoUO9e794/q9BwO+rs63SNBcFkuvkNEkoZvvf3BKmlYOb1wzBEkKwnBtmDEJaI0DyTg4Kp+V2xBs
+NhCsGYh3r0Lmh+uvqLPzoaTr7ictlxUp/fzlyy+y45nDm3oGEJIkNDwHNZZDQeRRCrAo+1mwA+uB
+/rXA5gFgy2YIq3vx1DNbAd14oXB+5EMxFAJbmJn23/38y2MbOtYiQmU14KJqu9Cq88h6Ov4iwVpP
+F2WYeNIbBAWgbzUichpyby9KFy99as/OJll1bHx3LF9bI7W2oeK5lBULXZ/DNVvBFdeFwvuwsq8P
+f8/M4H9POAj4eIRTKTiL1cSDby7sZxcvX92diiXJThYNCvNRFZOuiguWixLh0jQMuI6DLIktLCz8
+J0Z9axQX4dk2BM4H5frNvXzlx2sb+nq3YMlgl95VS8MEPFQ9aoeioFQqIZvNIp/Po1wuw088pQIC
+5FwR0QUFTlkHYztoZGd6eN5x4x7HE3AuHHCwPAtlEuYIZFVVkcvlIMsyJicnMTY2hpZIBFQgBo0G
+BL0JbjYHQ62g6FYCbJMhCkjIRwv8y9mxCDwGmYDMZDI4evQoRFHEvn37UNY0TN+ZxKOpu9CnpuFk
+HkJQa2DEgMUd2DK4VdLqm6RQHA7PUQ9c1OwKJghkeB4UKnN0dBQjIyOQgkE4lHH9u4tYt2AgoFnw
+qgZUowinq32ST24bujH/2cm3mRo1MpaA4zLoLjew5lER39ZNWOYy3HDIhNOnTqGPvj+mOoSIDEGi
+XtlNaKgjPtB/lY/tff575YszijafTbbUGxB5P8KGgOcqBiQ08RNt1ihaKIYotlN3u8I9SBGTfstB
+vq6izvms9K6d5/nEuvWL5TdeO1k8fuIY1wyRzTFEQkF0+dchUS9hd1OD7lpoo4mQfBGakCRaBAku
+MViu6yjaOaSHh8/IO3ZkmCb9tKpV8cquZ6+xf94ZSoZXQBTCEHwCAcLB9GhGvSWDWIgkGCCLeMpI
+J6GcMYdqW3R6w9dfbU3095fYJej84bDZ++47w3Zn+melsoDFaoEWq2AaVYRo4NuovAgJcg0Ctaaj
+oM7hofEQRmsks/LIoT31WKx0n9BZvs9cy6LbRSj2vXdob+bs2ROViXuvKqbmj3ASEkQ3KCPbcWFb
+JnSaXoaMrqVjF+WXXzoSSKVmHdrPkftPLselkeFFUUs8Pfim273qdEOrHMiN/bFTbzZlv2kLHs9b
+bDpasPwtv7YPD5/z5XM3fHS/eZb9ZML+EWAAhAgjbFE66RIAAAAASUVORK5CYII=
+------MultipartBoundary--iU7eRLyRv3m4PxTtrcSjzH8zZkDnn21KYs7xJp1zIb----
+Content-Type: image/gif
+Content-Transfer-Encoding: base64
+Content-Location: http://www.cs.utexas.edu/users/djimenez/utsa/cs3343/theta.uc.gif
+
+R0lGODlhCAAKAPAAAP///wAAACH5BAEAAAAALAAAAAAIAAoAAAISBIJhp2z9jpSI1RvryrtpbTUF
+ADs=
+------MultipartBoundary--iU7eRLyRv3m4PxTtrcSjzH8zZkDnn21KYs7xJp1zIb------

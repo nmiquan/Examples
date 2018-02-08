@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang='en'>
+  <head>
+    <meta charset='utf-8'> <!--idenfities encoding for this file is UTF-8-->
+    <title>D3: Style Color</title>
+    <script type='text/css' src='d3/d3.js'></script> <!--reference to d3-->
+  </head>
+  <body>
+    <script type='text/javascript'>
+        var dataset = [5,10,15,20,25];
+        d3.select('body')
+          .selectAll('p')
+          .data(dataset)
+          .enter()
+          .append('p')
+          .text(function(d){return 'Current count is ' + d;})
+          .style('color', function(d){
+            if (d > 15){
+              return 'cyan';
+            }
+            else {
+              return 'magenta';
+            }
+          });
+    </script>
+  </body>
+</html>

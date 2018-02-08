@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html lang='en'>
+  <head>
+    <meta charset='utf-8'> <!--idenfities encoding for this file is UTF-8-->
+    <title>D3: Generate dataset</title>
+    <script type='text/javascript' src='d3/d3.js'></script> <!--reference to d3-->
+  </head>
+  <body>
+    <script type='text/javascript'>
+        var dataset = [5,10,15,20,25];
+        d3.select('body').selectAll('p').data(dataset).enter().append('p').text('New paragraph!');
+    </script>
+  </body>
+</html>
