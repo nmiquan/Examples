@@ -6,9 +6,7 @@
 
 [GitHub Help](https://help.github.com)
 
-[Markdown Cheatsheet](https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet)
-
-- For markdown, also see writing section in GithubHelp
+[Markdown Cheatsheet](https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet) (For markdown, also see writing section in GithubHelp)
 
 ## Stack Overflow
 
