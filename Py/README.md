@@ -1,6 +1,16 @@
 https://webcms3.cse.unsw.edu.au/COMP9021/17s2/ 
 
- 
+If-else in List comprehension: https://stackoverflow.com/questions/4406389/if-else-in-a-list-comprehension
+
+Assignment operator: https://medium.com/broken-window/many-names-one-memory-address-122f78734cb6
+Variable naming: https://stackoverflow.com/questions/13530998/python-variables-are-pointers
+Understanding python variables as pointers: scottlobdell.me/2013/08/understanding-python-variables-as-pointers/ 
+Memory in python: www.cs.toronto.edu/~guerzhoy/180/handouts/memory.pdf
+Variable naming, again: stupidpythonideas.blogspot.com.au/2013/11/does-python-pass-by-value-or-by.html
+Python data model: https://docs.python.org/3.5/reference/datamodel.html
+Understanding Python variables: foobarnbaz.com/2012/07/08/understanding-python-variables/
+https://stackoverflow.com/questions/306313/is-operator-behaves-unexpectedly-with-integers/
+Might want to make a folder for Variable Assignments
 
 Student Resources: 
 

@@ -1,10 +1,11 @@
-## Guide/Help
+# Guide/Help
 
 [Git guide](rogerdudler.github.io/git-guide/)
 
 [Git Hello World](https://guides.github.com/activities/hello-world/)
 
 [GitHub Help](https://help.github.com)
+    - For updating a forked project, check out Collaborating with issues and pull requests/Syncing a fork
 
 [Markdown Cheatsheet](https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet) (For markdown, also see writing section in GithubHelp)
 
