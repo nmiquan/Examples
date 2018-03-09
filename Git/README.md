@@ -1,6 +1,6 @@
 # Guide/Help
 
-[Git guide](rogerdudler.github.io/git-guide/)
+[Git guide](https://rogerdudler.github.io/git-guide/)
 
 [Git Hello World](https://guides.github.com/activities/hello-world/)
 
