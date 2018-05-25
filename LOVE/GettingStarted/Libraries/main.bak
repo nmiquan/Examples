@@ -1,0 +1,16 @@
+-- Doesn't work
+
+function love.load()
+    tick = require "tick"
+    drawRectangle = false
+    tick.delay(function () drawRectangle = true end, 10)
+end
+
+function love.update()
+end
+
+function love.draw()
+    if drawRectangle then
+        love.graphics.rectangle("fill", 100, 100, 300, 200)
+    end
+end
